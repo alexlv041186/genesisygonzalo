@@ -1448,6 +1448,10 @@ footer a{
     }
 
         /* Dresscode Section */
+    .dresscode-cards-container{
+        flex-wrap: nowrap;
+    }
+
     .dresscode-section .section-title {
         font-size: 1.6em;
     }
@@ -1461,7 +1465,7 @@ footer a{
     }
 
     .hospedaje-section {
-        padding: 40px 10px;
+        padding: 0px 0px;
     }
     .parallax-hospedaje {
         padding: 40px 10px;
@@ -1470,7 +1474,7 @@ footer a{
         padding: 20px;
     }
     .hospedaje-content .section-title {
-        font-size: 1.8em;
+        font-size: 1.4em;
     }
     .hospedaje-content .section-subtitle {
         font-size: 0.9em;
@@ -1479,6 +1483,11 @@ footer a{
     .hospedaje-card {
         height: 350px;
     }
+
+    .hospedaje-card-info h3{
+        font-size: 1.0em;
+    }
+
     .hospedaje-button {
         padding: 10px 20px;
         font-size: 0.85em;
@@ -1523,7 +1532,7 @@ footer a{
         padding: 8px;
     }
     .rsvp-form .radio-group {
-        gap: 10px;
+        gap: 0px;
     }
     .rsvp-form .radio-group input[type="radio"] {
         transform: scale(1);

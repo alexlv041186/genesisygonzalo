@@ -1,0 +1,1546 @@
+/* ========================================= */
+/* Globales y Variables                      */
+/* ========================================= */
+html {
+    scroll-behavior: smooth;}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face{
+    font-family: 'segoesc';
+    src: url(../fonts/segoesc.ttf);
+}
+
+:root {
+    --color-0: #46272f; 
+    --color-1:#6C5B5B;
+    --color-2: #916c66;
+    --color-3: #a49a8f; 
+    --color-4: #c3b7ab;
+}
+
+/* ========================================= */
+/* Body y Fondo General                      */
+/* ========================================= */
+body {
+    align-items: center; /* Centra los hijos horizontalmente */
+    background-color: var(--color-3); /* Base color for the page */
+    color: var(--color-1);
+    display: flex; /* Hacemos que el body sea un contenedor flex */
+    flex-direction: column; /* Apilamos sus hijos verticalmente */
+    margin: 0;
+    min-height: 100vh; /* Ensure it takes full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative; /* For background texture */
+}
+
+body::before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1; /* Place behind all content */
+}
+
+/* ========================================= */
+/* Header y Navegación                       */
+/* ========================================= */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+nav {
+    background-color: #a49a8fc2; /* Usando el nuevo color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    padding: 1.5rem 2rem;
+}
+
+.nav-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.0rem;
+    font-weight:100;
+    text-decoration: none;
+    font-family: 'segoesc';
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    color: #fff;
+    font-weight: 100;
+    text-decoration: none;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+}
+
+.nav-links a:hover {
+    opacity: 0.5;
+    transform: translateY(-2px);
+}
+
+/* ========================================= */
+/* Sección de la Tarjeta de Boda             */
+/* ========================================= */
+.wedding-card-section {
+    background-attachment: fixed; /* This is the key for the parallax effect */
+    align-items: center;
+    background-image: url(../img/fondo1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    height: 700px;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-content {
+    /*border-radius: 8px;  Slightly rounded corners for the card */
+    display: flex; /* Flex container for image and details areas */
+    flex-direction: row; /* Default: image left, text right */
+    max-width: 1200px;
+    overflow: hidden; /* Ensures image doesn't spill out */
+    width: 100%;
+    margin-top: 65px;
+}
+
+.image-area {
+    align-items: center;
+    display: flex;
+    flex: 8; /* Takes up more space for the image, e.g., 60-70% */
+    justify-content: center;
+    overflow: hidden; /* Crucial for image cropping */
+    padding: 0; /* No padding inside this area */
+}
+
+.couple-image {
+    display: block; /* Removes extra space below image */
+    height: 100%;
+    object-fit: cover; /* Ensures image fills and crops correctly */
+    width: 100%;
+}
+
+.details-area {
+    align-items: center;
+    display: flex;
+    flex: 4; /* Takes up less space for the text, e.g., 30-40% */
+    justify-content: center;
+    padding: 40px 30px; /* Padding inside the text area */
+    text-align: center; /* Center the text */
+}
+
+.wedding-details {
+    max-width: 350px; /* Optional: limit width of text block within its area */
+    width: 100%; /* Make sure it uses available width */
+}
+
+/* Text Styles */
+.date {
+    color: var(--color-1);
+    font-size: 12px; /* Adjusted size */
+    font-weight: 100;
+    letter-spacing: 1.5px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.initials {
+    width: 60px;
+}
+
+.location {
+    color: var(--color-3); /* Usando el nuevo color */
+  font-family: "Ephesis", cursive;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 22px; /* Adjusted size */
+    margin-top: 15px;
+}
+
+.names {
+    color: var(--color-1);
+    font-family: segoesc;
+    font-size: 36px; /* Adjusted size */
+    font-weight: 100;
+    margin-bottom: 5px;
+    margin-top: 0;
+    margin: 25px 0 5px 0;
+}
+
+/* ========================================= */
+/* Sección del Temporizador                  */
+/* ========================================= */
+.temporizador {
+    background-image: url(../img/fondo_1.jpg);
+    background-position: bottom;
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Centra el timer-container dentro de esta sección */
+    padding: 20px; /* Un poco de padding alrededor de la sección del temporizador */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+
+        background-color: #a4917c29;
+    background-blend-mode: color-burn;
+}
+
+.temporizador .timer-container h1{
+    font-family: "Ephesis", cursive;
+    font-size: 1.3em;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    color: var(--color-0);
+    margin-bottom: 50px;
+}
+
+.timer-container {
+    border-radius: 10px;
+    margin-bottom: 0px; /* Espacio debajo del temporizador */
+    margin-top: 0px; /* Espacio entre la sección principal y el temporizador */
+    max-width: 600px; /* Limita el ancho máximo del temporizador para que no sea demasiado grande */
+    padding: 40px 30px;
+    text-align: center;
+    width: 90%; /* Ocupa el 90% del ancho del contenedor padre (.temporizador) */
+}
+
+.timer-container .countdown {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    color: var(--color-0);
+}
+
+.time-unit {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+    color: var(--color-0);
+}
+
+.time-unit .label { /* Las etiquetas (Días, Horas, Minutos) */
+    color: var(--color-0); /* Usando el nuevo color */
+    font-size: 1em;
+    letter-spacing: 1px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.time-unit span:first-child { /* Los números */
+    color: var(--color-0); /* Usando el nuevo color */
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+
+/* ========================================= */
+/* Sección Parallax */
+/* ========================================= */
+.parallax {
+    background-attachment: fixed; /* This is the key for the parallax effect */
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* Adjust the height of the parallax section as needed */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Optional: Text color if you want to add text over the parallax image */
+    text-align: center; /* Optional: Center text */
+}
+
+.parallax-1{
+background-image: url(../img/11.jpg) /* Adjust the path to your image */
+}
+
+.parallax-2{
+background-image: url(../img/28.jpg);
+}
+
+/* Optional: If you want to add text or other content over the parallax image */
+.parallax-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Semi-transparent background for text */
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.parallax-content h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.parallax-content p {
+    font-size: 1.2em;
+}
+
+
+/* ========================================= */
+/* Sección de Itinerario con Imagen          */
+/* ========================================= */
+.itinerario-section {
+    background-color: #783030; /* Color de fondo para las columnas de detalles */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.itinerario-columns-container { /* ESTE ES EL NUEVO CONTENEDOR FLEX */
+    display: flex; /* Habilitar flexbox para las columnas */
+    flex-direction: row; /* Por defecto, en fila (para desktop) */
+    width: 100%;
+    overflow: hidden; /* Asegura que la imagen y los bordes se vean bien */
+}
+
+.itinerario-column {
+    flex: 1; /* Cada columna ocupará el mismo espacio */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar contenido horizontalmente dentro de cada columna */
+    justify-content: center; /* Centrar contenido verticalmente dentro de cada columna */
+    padding: 30px; /* Relleno general para todas las columnas */
+    text-align: center; /* Centrar el texto por defecto */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
+}
+
+.itinerario-image-column {
+    background-color: transparent; /* Fondo transparente */
+    padding: 0; /* No padding en la columna de imagen si la imagen la llena */
+    overflow: hidden;
+}
+
+.itinerario-image {
+    width: 100%;
+    height: 100%; /* Asegura que la imagen llene la columna */
+    object-fit: cover; /* Recorta la imagen para que encaje */
+    display: block;
+}
+
+.itinerario-details-column {
+    gap: 15px; /* Espacio entre los elementos de texto/botón */
+    padding: 220px 0;
+}
+
+.itinerario-blank-column{
+    width: 50%;
+}
+
+/* Estilos específicos para los textos y botones dentro de la sección de itinerario */
+.itinerario-title {
+    color: white; /* Título en color claro */
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-transform: uppercase;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+}
+
+.itinerario-date-time,
+.itinerario-location {
+    color: rgba(255, 255, 255, 0.9); /* Texto ligeramente más claro */
+    font-weight: 300;
+    margin-bottom: 2px; /* Pequeño espacio entre fecha/hora y lugar */
+    font-size: .8em;
+    letter-spacing: 1px;
+}
+
+.itinerario-location {
+    margin-bottom: 20px; /* Más espacio debajo de la ubicación antes de los botones */
+}
+
+.itinerario-buttons-group {
+    font-size: .7em;
+    display: flex;
+    flex-direction: column; /* Apilar botones verticalmente en el itinerario */
+    gap: 10px; /* Espacio entre los botones */
+    width: 100%; /* Asegura que el grupo ocupe el ancho disponible */
+    max-width: 160px; /* Limita el ancho de los botones para que no sean demasiado grandes */
+    margin-top: 10px; /* Espacio superior para separar de la ubicación */
+}
+
+.itinerario-button {
+    background-color: #a49a8fc2;
+    color: white;
+    padding: 10px 15px; /* Ajustar padding para botones apilados */
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block; /* Ocupa todo el ancho del grupo */
+    width: 100%;
+}
+
+.itinerario-button:hover {
+    background-color: white;
+    color: var(--color-1);
+    transform: translateY(-2px);
+}
+
+
+/* ========================================= */
+/* Nueva Sección: Dresscode                  */
+/* ========================================= */
+.dresscode-section {
+    background: url(../img/fondo2.png); /* Usando el nuevo color */
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    padding: 150px 0;
+}
+
+.dresscode-section .section-title {
+    color: var(--color-3); /* Usando el nuevo color */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    margin-bottom: 60px;
+    letter-spacing: 5px;
+    font-weight: 100;
+}
+
+.dresscode-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    gap: 30px; /* Espacio entre las tarjetas */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dresscode-card {
+    background-color: transparent; /* Fondo transparente para que se vea el flip */
+    width: 100%; /* Por defecto ocupa el 100% para móvil, se ajusta con flex-basis */
+    max-width: 370px; /* Ancho máximo para cada tarjeta */
+    height: 400px; /* Define una altura fija para las tarjetas */
+    perspective: 1000px; /* Define la perspectiva para el efecto 3D */
+    cursor: pointer; /* Indica que es clickeable */
+    margin: 0 30px;
+}
+
+/* Contenedor interno para el flip */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Permite el efecto 3D en los hijos */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra en el contenedor que flipa */
+}
+
+/* **CAMBIO AQUÍ: Ahora se activa con la clase 'flipped'** */
+.dresscode-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Caras frontal y trasera de la tarjeta */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Oculta la parte trasera cuando no está girada */
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinea el contenido hacia arriba */
+    overflow: hidden;
+}
+
+.card-front {
+    background-color: white;
+    color: var(--color-1);
+    border: 15px solid white;
+}
+
+.card-back {
+    background-color: white; /* Fondo de la parte trasera */
+    color: var(--color-1);
+    transform: rotateY(180deg); /* La cara trasera está inicialmente girada */
+    justify-content: center; /* Centra el contenido en la parte trasera */
+}
+
+.card-image {
+    width: 100%;
+    height: 80%; /* La imagen ocupa el 70% de la altura de la cara frontal/trasera */
+    object-fit: cover;
+}
+
+.card-back .card-image {
+    width: 93%;
+    height: 100%; /* La imagen ocupa el 70% de la altura de la cara frontal/trasera */
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 11px 0px 10px 0px;
+    text-align: center;
+    width: 100%; /* Asegura que la info ocupe todo el ancho disponible */
+    height: 30%; /* La info ocupa el 30% restante */
+    display: flex; /* Para centrar el contenido verticalmente si es necesario */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-info p {
+    font-size: 1em;
+    color: var(--color-1);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+/* Estilos específicos para la info de la parte trasera */
+.card-back .card-info {
+    /* No necesita altura fija aquí, ya está cubierta por el 30% del padre */
+    height: auto; /* Permite que el contenido determine su altura */
+}
+
+/* ========================================= */
+/* Sección: Hospedaje                        */
+/* ========================================= */
+.hospedaje-section {
+    width: 100%;
+    overflow: hidden; /* Asegura que no haya desbordamientos de contenido */
+}
+
+.parallax-hospedaje {
+    background-attachment: fixed; /* Esto es clave para el efecto parallax */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 80px 20px 0 20px; /* Relleno dentro del parallax */
+}
+
+.parallax-hospedaje-1{
+    background-image: url(../img/fondo_detalle.jpg); /* Imagen de fondo para el parallax (nueva imagen) */
+    background-color: #783030;
+    background-blend-mode: multiply;
+}
+
+.parallax-hospedaje-2{
+    background-image: url(../img/fondo_detalle.jpg); /* Imagen de fondo para el parallax (nueva imagen) */
+    background-color: #783030;
+    background-blend-mode: color-burn;
+
+    border-top: 2px solid white;
+}
+
+.hospedaje-content {
+    padding: 0px 40px;
+    text-align: center;
+    max-width: 900px; /* Ajusta este valor si necesitas más espacio para las 3 tarjetas */
+    margin: 0 auto; /* Centrar el contenido */
+    color: white;
+}
+
+.hospedaje-content .section-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+    color: white;
+    font-weight: 100;
+}
+
+.hospedaje-content .section-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8em;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+.hospedaje-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espacio entre las tarjetas */
+}
+
+.hospedaje-card {
+    background-color: transparent; /* Fondo transparente para el flip */
+    width: 100%;
+    flex-basis: calc(33.333% - 20px); /* Para 3 tarjetas por fila, restando el gap */
+    max-width: 300px; /* Ancho máximo para cada tarjeta individual */
+    height: 400px; /* Altura fija para las tarjetas */
+    perspective: 1000px; /* Perspectiva para el efecto 3D */
+    cursor: pointer;
+}
+
+@media (min-width: 769px) {
+    .hospedaje-card {
+        flex-basis: calc(33.333% - 20px); /* Tres tarjetas por fila en desktop */
+    }
+}
+
+
+.hospedaje-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Flip al hacer hover */
+.hospedaje-card:hover .hospedaje-card-inner {
+    transform: rotateY(180deg);
+}
+
+.hospedaje-card-front, .hospedaje-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.hospedaje-card-front {
+    color: var(--color-3);
+}
+
+.hospedaje-card-back {
+    background-color: white; /* Fondo de la tarjeta trasera */
+    color: var(--color-1);
+    transform: rotateY(180deg);
+    justify-content: center; /* Centrar contenido verticalmente */
+    padding: 20px;
+    box-sizing: border-box; /* Incluir padding en el ancho/alto total */
+    height: 70%;
+}
+
+.hospedaje-card-image {
+    width: 100%;
+    height: 70%; /* La imagen ocupa el 70% de la altura de la cara */
+    object-fit: cover;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    border: 1px solid white;
+}
+
+.hospedaje-card-info {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    height: 40px; /* La información ocupa el 30% restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrar el texto en el frente */
+    align-items: center;
+    font-size: 1em;
+    
+}
+
+.hospedaje-card-info h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.7em;
+    color: var(--color-1);
+    margin: 0;
+    line-height: normal;
+    height: 50px;
+    background-color: white;
+    padding: 10px 20px;
+    margin-top: -30px;
+}
+
+.hospedaje-back-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Asegura que el contenido ocupe toda la altura */
+}
+
+.hospedaje-back-content h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    color: #9a8178;
+}
+
+.hospedaje-back-content p {
+    font-size: 0.7em;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--color-1);
+}
+
+.hospedaje-buttons {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    font-size: 0.7em;
+}
+
+.hospedaje-button {
+    background-color: #9a8178; /* Color de fondo del botón */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* Evita que el texto del botón se rompa en varias líneas */
+}
+
+.hospedaje-button:hover {
+    background-color: var(--color-2); /* Color más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+
+/* ========================================= */
+/* Sección: FAQs                             */
+/* ========================================= */
+.faqs-section {
+    background-color: #9a8178; /* Fondo oscuro para la sección de FAQs */
+    padding: 80px 20px;
+    width: 100%;
+    color: white; /* Texto claro */
+    text-align: center; /* Centrar el título */
+}
+
+.faqs-container {
+    max-width: 1200px; /* Ancho máximo similar a otras secciones principales */
+    margin: 0 auto;
+}
+
+.faq-columns-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan */
+    justify-content: center;
+    gap: 80px; /* Espacio entre las columnas */
+}
+
+.faq-column {
+    background-color: transparent; /* Fondo transparente, ya que el fondo principal es oscuro */
+    padding: 20px;
+    flex-basis: calc(25% - 22.5px); /* 4 columnas: (100% / 4) - (3 * gap / 4) */
+    max-width: 300px; /* Máximo ancho para cada columna */
+    text-align: left; /* Alinear el texto de las preguntas a la izquierda */
+    border-top: 1px solid var(--faq-line-color); /* Línea divisoria superior */
+    padding-top: 25px; /* Espacio para la línea superior */
+    box-sizing: border-box; /* Incluir padding en el ancho/alto */
+}
+
+.faq-column:first-child,
+.faq-column:nth-child(2),
+.faq-column:nth-child(3),
+.faq-column:nth-child(4) {
+    border-top: 1px solid var(--faq-line-color);
+}
+
+.faq-question {
+    font-weight: 100;
+    font-size: 1em;
+    color: white; /* Color para las preguntas */
+    margin-bottom: 18px;
+    line-height: 1.4;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+
+.faq-answer {
+    font-size: 0.7em;
+    color: rgba(255, 255, 255, 0.8); /* Texto de respuesta ligeramente más claro */
+    line-height: 1.5;
+    margin-bottom: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ========================================= */
+/* Sección: Mesa de Regalos                  */
+/* ========================================= */
+.gift-registry-section {
+    background-image: url('../img/fondo2.png'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white; /* Texto blanco para contraste con la imagen */
+    position: relative; /* Necesario para el overlay */
+    overflow: hidden; /* Asegura que nada se desborde */
+    padding: 100px 0 80px 0;
+    width: 100%;
+}
+
+/* Overlay semitransparente para mejor legibilidad del texto */
+.gift-registry-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.gift-registry-content {
+    position: relative; /* Coloca el contenido encima del overlay */
+    z-index: 2;
+    max-width: 800px; /* Limita el ancho del contenido */
+    margin: 0 auto; /* Centra el contenido */
+}
+
+.gift-registry-content .section-title {
+    color: var(--color-1);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    margin-bottom: 5px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.gift-registry-content .section-subtitle {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: var(--color-1);
+}
+
+.store-logo {
+    max-width: 80px; /* Tamaño máximo del logo */
+    height: auto;
+    margin: 0 auto 10px; /* Espacio debajo del logo */
+    filter: brightness(1.2); /* Aumenta un poco el brillo del logo para que resalte */
+    display: block;
+}
+
+.store-button {
+    background-color: var(--color-1); /* Color del botón */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: .7em;
+    font-weight: 100;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Para que el padding y margin funcionen correctamente */
+}
+
+.store-button:hover {
+    background-color: var(--color-2); /* Cambio de color al pasar el ratón */
+    transform: translateY(-3px);
+}
+
+
+/* ========================================= */
+/* Nueva Sección: RSVP (Formulario)          */
+/* ========================================= */
+.rsvp-section {
+    background-image: url(../img/fondo_formulario-01.jpg); /* Imagen de fondo para la sección RSVP */
+    background-attachment: fixed; /* Efecto Parallax */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding:140px 20px 80px 20px; /* Relleno superior e inferior */
+    width: 100%;
+    position: relative;
+    color: white; /* Texto blanco para el contraste */
+}
+
+/* Overlay para la sección de RSVP para mejorar la legibilidad del formulario */
+.rsvp-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.rsvp-content {
+    position: relative; /* Para que el contenido esté por encima del overlay */
+    z-index: 2;
+    max-width: 715px; /* Ancho máximo del formulario */
+    margin: 0 30px 0 500px; /* Centrar el formulario */
+    background-color: rgba(255, 255, 255, 0.75); /* Fondo semitransparente para el contenedor del formulario */
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    left: 10%;
+}
+
+.rsvp-section .section-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--color-1);
+    font-weight: 100;
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+
+.rsvp-form .form-group {
+    margin-bottom: 25px; /* Espacio entre grupos de formulario */
+}
+
+.rsvp-form label {
+    display: block; /* Cada label en su propia línea */
+    font-size: 0.6em;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--color-1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form input[type="tel"],
+.rsvp-form input[type="number"],
+.rsvp-form select,
+.rsvp-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333; /* Borde sutil */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.08); /* Fondo de input semi-transparente */
+    color: var(--color-1);
+    font-size: 0.7em;
+    outline: none; /* Elimina el contorno al enfocar */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.rsvp-form input[type="text"]::placeholder,
+.rsvp-form input[type="tel"]::placeholder,
+.rsvp-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.rsvp-form input[type="text"]:focus,
+.rsvp-form input[type="tel"]:focus,
+.rsvp-form input[type="number"]:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+    border-color: var(--color-1); /* Borde de acento al enfocar */
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.rsvp-form select option {
+    background-color: var(--color-3); /* Fondo para opciones del select */
+    color: white;
+}
+
+.rsvp-form .radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.rsvp-form .radio-group input[type="radio"] {
+    width: auto; /* Permitir que los radios tomen su ancho natural */
+    margin-right: 5px;
+    transform: scale(1.2); /* Hacer los radios un poco más grandes */
+    cursor: pointer;
+}
+
+.rsvp-form .radio-group label {
+    display: inline-block; /* Para que la etiqueta esté al lado del radio */
+    margin-bottom: 0; /* Eliminar margen inferior */
+    font-size: 0.5em;
+    cursor: pointer;
+}
+
+.rsvp-form textarea {
+    resize: vertical; /* Permitir redimensionar solo verticalmente */
+    min-height: 80px;
+}
+
+.confirm-button {
+    background-color: #9a8178;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.confirm-button:hover {
+    background-color: var(--color-2);
+    transform: translateY(-3px);
+}
+
+/* ========================================= */
+/* Seccion FOOTER                            */
+/* ========================================= */
+footer{
+    background-image: url(../img/fondo3.png);
+    background-position: 50%;
+    background-size: cover;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.6em;
+}
+
+footer a{
+    margin-top: 5px;
+    text-decoration: none;
+    color: black;
+    font-family: "segoesc";
+}
+
+
+
+
+
+/* ========================================= */
+/* Media Queries (Responsive Adjustments)    */
+/* ========================================= */
+
+/* Para pantallas menores a 992px (tablets landscape) */
+@media (max-width: 992px) {
+    .card-content {
+        max-width: 800px; /* Make the card slightly narrower */
+    }
+
+    .details-area {
+        flex: 2; /* Reduce text space */
+        padding: 30px 20px;
+    }
+
+    .image-area {
+        flex: 3; /* Give image more space on tablets if needed */
+    }
+
+    .names {
+        font-size: 1.8em;
+    }
+
+    .date {
+        font-size: 0.9em;
+    }
+
+    .location {
+        font-size: 1.4em;
+    }
+
+    /* Navegación móvil */
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        align-items: center;
+        background-color: var(--color-3); /* Usando el nuevo color */
+        clip-path: circle(0px at 90% -10%);
+        flex-direction: column;
+        left: 0;
+        padding: 1rem 0;
+        pointer-events: none;
+        position: fixed;
+        top: 50px;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        transition: all 0.3s ease;
+        transform: translateY(20px);
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-links li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-links li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-links li:nth-child(4) { transition-delay: 0.4s; }
+    .nav-links li:nth-child(5) { transition-delay: 0.5s; }
+    .nav-links li:nth-child(6) { transition-delay: 0.6s; }
+    .nav-links li:nth-child(7) { transition-delay: 0.7s; }
+
+    .hospedaje-card {
+        max-width: 320px; /* Ligeramente más grande para 2 por fila si es necesario */
+    }
+
+    /* FAQs - 2 columnas */
+    .faq-column {
+        flex-basis: calc(50% - 22.5px); /* 2 columnas: (100% / 2) - (1 * gap / 2) */
+    }
+
+    /* Mesa de Regalos */
+    .gift-registry-section {
+        padding: 80px 15px;
+    }
+    .gift-registry-content .section-title {
+        font-size: 2.5em;
+    }
+
+    /* RSVP Section */
+    .rsvp-content {
+        padding: 30px;
+    }
+    .rsvp-section .section-title {
+        font-size: 2.2em;
+    }
+}
+
+
+/* Para pantallas menores a 768px (tablets portrait y teléfonos grandes) */
+@media (max-width: 768px) {
+    .card-content {
+        background-image: url(../img/fondo2.png);
+        border-radius: 0; /* No rounded corners on mobile */
+        box-shadow: none; /* No shadow on mobile for a cleaner look */
+        flex-direction: column-reverse; /* Stack image and text vertically */
+        margin-top: 70px;
+        max-width: 100%; /* Take full width */
+    }
+
+    .details-area {
+        min-height: 40vh; /* Text takes 40% of viewport height */
+        padding: 40px 20px; /* Adjust padding for mobile */
+    }
+
+    .image-area, .details-area {
+        flex: none; /* Reset flex sizing */
+        width: 100%; /* Each takes full width */
+    }
+
+    .image-area {
+        height: 60vh; /* Image takes 60% of viewport height */
+    }
+
+    .couple-image {
+        height: 70%;
+        margin-bottom: 25px;
+    }
+
+    .names {
+        font-size: 1em;
+    }
+
+    .date {
+        font-size: 0.8em;
+    }
+
+    .location {
+        font-size: 1.3em;
+    }
+
+    .parallax {
+        height: 300px;
+    }
+
+    .itinerario-columns-container {
+        flex-direction: column; /* Apilar las columnas verticalmente */
+        max-width: 500px; /* Opcional: limitar el ancho total en móvil */
+        margin: 0 auto; /* Centrar el contenedor apilado */
+        padding: 80px 0;
+    }
+
+    .itinerario-column {
+        flex: none; /* Resetear flex para que ocupen todo el ancho */
+        width: 100%;
+        padding: 40px 20px; /* Ajustar padding para móviles */
+        border-left: none; /* Eliminar bordes laterales en móvil */
+       }
+
+    /* La última columna (espacio en blanco) no debe tener borde inferior */
+    .itinerario-column:last-child {
+        border-bottom: none;
+    }
+
+    /* Ajuste para las columnas de detalles, también sin borde izquierdo en móvil */
+    .itinerario-details-column {
+        border-left: none;
+    }
+    .itinerario-blank-column {
+        border-left: none; /* También para la columna en blanco */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Borde para separarla si está arriba */
+        background-color: var(--light-bg-color); /* Mantener su color */
+        min-height: 100px; /* Para que tenga un alto visible */
+    }
+
+    .itinerario-image-column {
+        height: 400px; /* Altura fija para la imagen en móvil */
+    }
+
+    .itinerario-buttons-group {
+        max-width: 250px; /* Ampliar un poco el ancho de los botones en móvil si es necesario */
+        margin: 15px auto 0 auto; /* Centrar el grupo de botones */
+    }
+
+    .itinerario-blank-column{
+        display: none;
+    }
+
+    .itinerario-image-column img{
+        border: 2px solid white;
+        height: 400px;
+    }
+
+        /* Dresscode Section */
+    .dresscode-cards-container {
+        flex-direction: column; /* Apilar las tarjetas verticalmente */
+        align-items: center; /* Centrar las tarjetas apiladas */
+    }
+
+    .dresscode-card {
+        max-width: 350px; /* Un ancho razonable para teléfonos */
+        height: 400px; /* Ajusta la altura para móviles */
+    }
+
+    .dresscode-section .section-title {
+        font-size: 2em;
+    }
+
+    .parallax-hospedaje {
+        padding: 60px 15px;
+    }
+
+    .hospedaje-content {
+        padding: 30px;
+    }
+
+    .hospedaje-content .section-title {
+        font-size: 2em;
+    }
+
+    .hospedaje-content .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .hospedaje-cards-container {
+        align-items: center;
+        gap: 25px;
+    }
+
+    .hospedaje-card {
+        max-width: 350px; /* Ancho completo para móvil */
+        height: 380px; /* Ajustar altura para móvil */
+        flex-basis: 100%; /* Una tarjeta por fila en móvil */
+    }
+
+    .hospedaje-card-info h3 {
+        font-size: 1.3em;
+    }
+
+    .hospedaje-back-content h3 {
+        font-size: 1.5em;
+    }
+
+    .hospedaje-back-content p {
+        font-size: 0.9em;
+    }
+
+    .hospedaje-buttons {
+        gap: 10px;
+        flex-direction: column; /* Apilar botones si es muy estrecho */
+        width: 100%;
+    }
+
+    .hospedaje-button {
+        width: 80%; /* Hacer los botones más anchos en móvil */
+        margin: 0 auto; /* Centrar los botones apilados */
+    }
+
+    /* FAQs - 1 columna */
+    .faq-column {
+        flex-basis: 100%; /* Una columna: 100% de ancho */
+        max-width: 500px; /* Limitar el ancho de la columna individual en pantallas más grandes */
+    }
+
+    /* Mesa de Regalos */
+    .gift-registry-section {
+        padding: 60px 15px;
+    }
+    .gift-registry-content .section-title {
+        font-size: 2em;
+    }
+    .gift-registry-content .section-subtitle {
+        font-size: 0.9em;
+        margin-bottom: 30px;
+    }
+    .store-logo {
+        max-width: 150px;
+        margin-bottom: 30px;
+    }
+    .store-button {
+        padding: 12px 25px;
+        font-size: 0.9em;
+    }
+
+    /* RSVP Section */
+    .rsvp-content {
+        padding: 25px;
+        left: 0;
+    }
+    .rsvp-section .section-title {
+        margin-bottom: 30px;
+    }
+    .rsvp-form label {
+        margin-bottom: 8px;
+    }
+    .rsvp-form input[type="text"],
+    .rsvp-form input[type="tel"],
+    .rsvp-form input[type="number"],
+    .rsvp-form select,
+    .rsvp-form textarea {
+        padding: 10px;
+    }
+    .rsvp-form .radio-group {
+        gap: 15px;
+    }
+    .rsvp-form .radio-group input[type="radio"] {
+        transform: scale(1.1);
+    }
+
+    .confirm-button {
+        padding: 12px 25px;
+        margin-top: 25px;
+    }
+}
+
+
+/* Para pantallas menores a 600px (general para el temporizador y algunos elementos de cards) */
+@media (max-width: 600px) {
+    .timer-container .countdown {
+        gap: 20px;
+    }
+
+    .timer-container h1 {
+        font-size: 1.8em;
+    }
+
+    .time-unit span:first-child {
+        font-size: 1em;
+    }
+
+    /* Sección de Itinerario */
+    .itinerario-details-area .section-title {
+        font-size: 1.8em;
+    }
+
+    .itinerario-blank-column{
+        display: none;
+    }
+
+    /* Dresscode Section */
+    .dresscode-section {
+        padding: 80px 15px;
+    }
+
+    .dresscode-section .section-title {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .card-info h3 {
+        font-size: 1.5em;
+    }
+}
+
+
+/* Para pantallas menores a 480px (teléfonos pequeños) */
+@media (max-width: 480px) {
+    .details-area {
+        min-height: 45vh; /* Adjust height for very small screens */
+        padding: 30px 15px 0;
+    }
+
+    .image-area {
+        height: 50vh; /* Adjust height for very small screens */
+    }
+
+    .names {
+        font-size: 1.4em;
+    }
+
+    .date {
+        font-size: 0.75em;
+    }
+
+    .location {
+        font-size: 1.1em;
+    }
+
+    .itinerario-column {
+        padding: 30px 15px; /* Reducir padding */
+    }
+    .itinerario-image-column {
+        height: 400px; /* Ajustar altura de la imagen en móviles más pequeños */
+    }
+
+    .itinerario-image{
+        border: 1px solid white;
+    }
+
+    .itinerario-button {
+        padding: 7px 10px;
+    }
+
+    .itinerario-blank-column{
+        display: none;
+    }
+
+        /* Dresscode Section */
+    .dresscode-cards-container{
+        flex-wrap: nowrap;
+    }
+
+    .dresscode-section .section-title {
+        font-size: 1.6em;
+    }
+
+    .card-info h3 {
+        font-size: 1.3em;
+    }
+
+    .card-info p {
+        font-size: 0.8em;
+    }
+
+    .hospedaje-section {
+        padding: 0px 0px;
+    }
+    .parallax-hospedaje {
+        padding: 40px 10px;
+    }
+    .hospedaje-content {
+        padding: 20px;
+    }
+    .hospedaje-content .section-title {
+        font-size: 1.4em;
+    }
+    .hospedaje-content .section-subtitle {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+    .hospedaje-card {
+        height: 350px;
+    }
+
+    .hospedaje-card-info h3{
+        font-size: 1.0em;
+    }
+
+    .hospedaje-button {
+        padding: 10px 20px;
+        font-size: 0.85em;
+    }
+
+    /* Mesa de Regalos */
+    .gift-registry-section {
+        padding: 40px 10px;
+    }
+    .gift-registry-content .section-title {
+        font-size: 1.8em;
+    }
+    .gift-registry-content .section-subtitle {
+        font-size: 0.8em;
+        margin-bottom: 25px;
+    }
+    .store-logo {
+        max-width: 120px;
+        margin-bottom: 25px;
+    }
+    .store-button {
+        padding: 10px 20px;
+        font-size: 0.8em;
+    }
+
+    /* RSVP Section */
+    .rsvp-content {
+        padding: 20px;
+    }
+    .rsvp-section .section-title {
+        font-size: 1.6em;
+        margin-bottom: 25px;
+    }
+    .rsvp-form label {
+        margin-bottom: 6px;
+    }
+    .rsvp-form input[type="text"],
+    .rsvp-form input[type="tel"],
+    .rsvp-form input[type="number"],
+    .rsvp-form select,
+    .rsvp-form textarea {
+        padding: 8px;
+    }
+    .rsvp-form .radio-group {
+        gap: 0px;
+    }
+    .rsvp-form .radio-group input[type="radio"] {
+        transform: scale(1);
+    }
+
+    .confirm-button {
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+}

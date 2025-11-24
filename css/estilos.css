@@ -75,10 +75,9 @@ nav {
 
 .logo {
     color: #fff;
-    font-size: 0.8rem;
+    font-size: 1.0rem;
     font-weight:100;
     text-decoration: none;
-    letter-spacing: 5px;
     font-family: 'segoesc';
 }
 
@@ -131,12 +130,13 @@ nav {
 }
 
 .card-content {
-    border-radius: 8px; /* Slightly rounded corners for the card */
+    /*border-radius: 8px;  Slightly rounded corners for the card */
     display: flex; /* Flex container for image and details areas */
     flex-direction: row; /* Default: image left, text right */
     max-width: 1200px;
     overflow: hidden; /* Ensures image doesn't spill out */
     width: 100%;
+    margin-top: 65px;
 }
 
 .image-area {
@@ -188,16 +188,15 @@ nav {
   font-family: "Ephesis", cursive;
   font-weight: 400;
   font-style: normal;
-    font-size: 20px; /* Adjusted size */
+    font-size: 22px; /* Adjusted size */
     margin-top: 15px;
 }
 
 .names {
     color: var(--color-1);
     font-family: segoesc;
-    font-size: 26px; /* Adjusted size */
+    font-size: 36px; /* Adjusted size */
     font-weight: 100;
-    letter-spacing: 5px;
     margin-bottom: 5px;
     margin-top: 0;
     margin: 25px 0 5px 0;
@@ -208,7 +207,7 @@ nav {
 /* ========================================= */
 .temporizador {
     background-image: url(../img/fondo_1.jpg);
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
     box-sizing: border-box;
     display: flex;
@@ -227,7 +226,7 @@ nav {
     letter-spacing: 2px;
     margin-bottom: 5px;
     margin-top: 0;
-    color: var(--color-1);
+    color: var(--color-0);
     margin-bottom: 50px;
 }
 
@@ -245,6 +244,7 @@ nav {
     display: flex;
     gap: 30px;
     justify-content: center;
+    color: var(--color-0);
 }
 
 .time-unit {
@@ -252,10 +252,11 @@ nav {
     display: flex;
     flex-direction: column;
     margin: 0 15px;
+    color: var(--color-0);
 }
 
 .time-unit .label { /* Las etiquetas (Días, Horas, Minutos) */
-    color: var(--color-3); /* Usando el nuevo color */
+    color: var(--color-0); /* Usando el nuevo color */
     font-size: 1em;
     letter-spacing: 1px;
     font-family: 'Times New Roman', Times, serif;
@@ -264,9 +265,9 @@ nav {
 }
 
 .time-unit span:first-child { /* Los números */
-    color: var(--color-1); /* Usando el nuevo color */
+    color: var(--color-0); /* Usando el nuevo color */
     font-size: 1.5em;
-    font-weight: lighter;
+    font-weight: 300;
     margin-bottom: 5px;
 }
 
@@ -398,7 +399,7 @@ background-image: url(../img/28.jpg);
 }
 
 .itinerario-button {
-    background-color: var(--color-3);
+    background-color: #a49a8fc2;
     color: white;
     padding: 10px 15px; /* Ajustar padding para botones apilados */
     text-align: center;
@@ -701,7 +702,7 @@ background-image: url(../img/28.jpg);
 .hospedaje-back-content h3 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5em;
-    color: var(--color-1);
+    color: #9a8178;
 }
 
 .hospedaje-back-content p {
@@ -721,7 +722,7 @@ background-image: url(../img/28.jpg);
 }
 
 .hospedaje-button {
-    background-color: var(--color-1); /* Color de fondo del botón */
+    background-color: #9a8178; /* Color de fondo del botón */
     border: none;
     border-radius: 5px;
     color: white;
@@ -743,7 +744,7 @@ background-image: url(../img/28.jpg);
 /* Sección: FAQs                             */
 /* ========================================= */
 .faqs-section {
-    background-color: var(--color-1); /* Fondo oscuro para la sección de FAQs */
+    background-color: #9a8178; /* Fondo oscuro para la sección de FAQs */
     padding: 80px 20px;
     width: 100%;
     color: white; /* Texto claro */
@@ -759,7 +760,7 @@ background-image: url(../img/28.jpg);
     display: flex;
     flex-wrap: wrap; /* Permite que las columnas se envuelvan */
     justify-content: center;
-    gap: 30px; /* Espacio entre las columnas */
+    gap: 80px; /* Espacio entre las columnas */
 }
 
 .faq-column {
@@ -784,7 +785,7 @@ background-image: url(../img/28.jpg);
     font-weight: 100;
     font-size: 1em;
     color: white; /* Color para las preguntas */
-    margin-bottom: 10px;
+    margin-bottom: 18px;
     line-height: 1.4;
     border-bottom: 1px solid white;
     text-align: center;
@@ -837,7 +838,6 @@ background-image: url(../img/28.jpg);
     color: var(--color-1);
     font-family: 'Times New Roman', Times, serif;
     font-weight: 100;
-    letter-spacing: 5.5px;
     margin-bottom: 5px;
     margin-top: 0;
     text-transform: uppercase;
@@ -906,8 +906,8 @@ background-image: url(../img/28.jpg);
 .rsvp-content {
     position: relative; /* Para que el contenido esté por encima del overlay */
     z-index: 2;
-    max-width: 850px; /* Ancho máximo del formulario */
-    margin: 0 auto; /* Centrar el formulario */
+    max-width: 715px; /* Ancho máximo del formulario */
+    margin: 0 30px 0 500px; /* Centrar el formulario */
     background-color: rgba(255, 255, 255, 0.75); /* Fondo semitransparente para el contenedor del formulario */
     padding: 40px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
@@ -1002,7 +1002,7 @@ background-image: url(../img/28.jpg);
 }
 
 .confirm-button {
-    background-color: var(--color-1);
+    background-color: #9a8178;
     color: white;
     border: none;
     padding: 15px 20px;
@@ -1040,8 +1040,9 @@ footer{
 
 footer a{
     margin-top: 5px;
-        text-decoration: none;
-        color: black;
+    text-decoration: none;
+    color: black;
+    font-family: "segoesc";
 }
 
 
@@ -1409,7 +1410,7 @@ footer a{
 @media (max-width: 480px) {
     .details-area {
         min-height: 45vh; /* Adjust height for very small screens */
-        padding: 30px 15px;
+        padding: 30px 15px 0;
     }
 
     .image-area {

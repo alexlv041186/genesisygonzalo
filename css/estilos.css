@@ -119,7 +119,7 @@ nav {
     background-attachment: fixed; /* This is the key for the parallax effect */
     align-items: center;
     background-image: url(../img/fondo1.jpg);
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
     box-sizing: border-box;
@@ -881,7 +881,7 @@ background-image: url(../img/28.jpg);
 /* Nueva Sección: RSVP (Formulario)          */
 /* ========================================= */
 .rsvp-section {
-    background-image: url(../img/fondo_formulario-01.jpg); /* Imagen de fondo para la sección RSVP */
+    background-image: url(../img/fondo_formulario-02.jpg); /* Imagen de fondo para la sección RSVP */
     background-attachment: fixed; /* Efecto Parallax */
     background-size: cover;
     background-position: center;
@@ -1517,7 +1517,14 @@ footer a{
     /* RSVP Section */
     .rsvp-content {
         padding: 20px;
+        margin: 0 auto;
     }
+
+    .rsvp-section{
+background-image: url(../img/fondo_formulario.jpg);
+    }
+    
+
     .rsvp-section .section-title {
         font-size: 1.6em;
         margin-bottom: 25px;

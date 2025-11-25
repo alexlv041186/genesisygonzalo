@@ -214,8 +214,7 @@ nav {
     justify-content: center; /* Centra el timer-container dentro de esta sección */
     padding: 20px; /* Un poco de padding alrededor de la sección del temporizador */
     width: 100%; /* Asegura que ocupe todo el ancho disponible */
-
-        background-color: #a4917c29;
+    background-color: #a4917c29;
     background-blend-mode: color-burn;
 }
 
@@ -1408,6 +1407,10 @@ footer a{
 
 /* Para pantallas menores a 480px (teléfonos pequeños) */
 @media (max-width: 480px) {
+    .wedding-card-section{
+        height: 685px;
+    }
+
     .details-area {
         min-height: 45vh; /* Adjust height for very small screens */
         padding: 30px 15px 0;
@@ -1429,6 +1432,12 @@ footer a{
         font-size: 1.1em;
     }
 
+    .temporizador {
+    background-position: bottom;
+    background-size: auto;
+
+}
+
     .itinerario-column {
         padding: 30px 15px; /* Reducir padding */
     }
@@ -1448,7 +1457,7 @@ footer a{
         display: none;
     }
 
-        /* Dresscode Section */
+    /* Dresscode Section */
     .dresscode-cards-container{
         flex-wrap: nowrap;
     }
@@ -1521,7 +1530,7 @@ footer a{
     }
 
     .rsvp-section{
-background-image: url(../img/fondo_formulario.jpg);
+        background-image: url(../img/fondo_formulario.jpg);
     }
     
 
